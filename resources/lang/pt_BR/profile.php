@@ -7,4 +7,5 @@ return [
     'followers' => 'Seguidores',
     'lists' => 'Listas',
     'graphs' => 'Gráficos',
+    'profiles_saved' => 'Perfis cadastrados',
 ];

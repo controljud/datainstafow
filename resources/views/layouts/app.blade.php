@@ -85,19 +85,48 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if (Auth::user()->image != null)
+                                    <img src="{{ asset('images/user/') }}{{ Auth::user()->image }}" class="img-responsible" style="max-width: 30px"/>
+                                    @else
+                                    <img src="{{ asset('images/profile.png') }}" class="img-responsible" style="max-width: 30px"/>
+                                    @endif
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-user"></i>&nbsp;
+                                        {{ __('default.edit_account') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-close"></i>&nbsp;
+                                        {{ __('default.exit') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{ asset('images/brazil.png')}}" class="img-responsible" style="max-width: 30px"/>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <img src="{{ asset('images/brazil.png')}}" class="img-responsible" style="max-width: 30px"/>
+                                        {{ __('default.portugues') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <img src="{{ asset('images/spain.png')}}" class="img-responsible" style="max-width: 30px"/>
+                                        {{ __('default.espanol') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <img src="{{ asset('images/us.png')}}" class="img-responsible" style="max-width: 30px"/>
+                                        {{ __('default.english') }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest

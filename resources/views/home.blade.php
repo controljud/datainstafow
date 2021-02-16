@@ -5,8 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">
+                    <b class="fleft">
+                        <i class="fa fa-home fa-2x"></i>&nbsp;
+                        {{ __('Dashboard') }}
+                    </b>
+                </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

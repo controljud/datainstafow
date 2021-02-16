@@ -20,8 +20,12 @@ Route::get('/', function () {
 Route::auth();
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/profiles', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/profiles/create', [App\Http\Controllers\ProfileController::class, 'create'])->name('profile');
-    Route::get('/profiles/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile');
+    Route::get('/profiles/create', [App\Http\Controllers\ProfileController::class, 'create'])->name('profile.create');
+    Route::get('/profiles/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+
+    Route::get('/lists', [App\Http\Controllers\ListController::class, 'index'])->name('list');
+    
+    Route::get('/graphs', [App\Http\Controllers\GraphController::class, 'index'])->name('graph');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

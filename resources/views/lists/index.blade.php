@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <b class="fleft">
-                        <i class="fa fa-users fa-2x"></i>&nbsp;
-                        {{ __('profile.profiles') }}
+                        <i class="fa fa-list fa-2x"></i>&nbsp;
+                        {{ __('list.lists') }}
                     </b>
                     <a href="{{asset('profiles/create')}}" class="btn btn-sm btn-success fright">
                         <i class="fa fa-plus-circle"></i>&nbsp;
@@ -16,7 +16,6 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    {{var_dump($user)}}
                     <table class="table">
                         <thead>
                             <tr>
@@ -24,14 +23,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($profiles as $profile)
                             <tr>
-                                <td>{{$profile->photo}}</td>
-                                <td>{{$profile->name}}</td>
-                                <td>{{$profile->profile}}</td>
-                                <td>{{$profile->followers}}</td>
                             </tr>
-                            @endforeach
                         </tbody>
                     </table>
                 </div>
